@@ -21,6 +21,7 @@
       --line: rgba(255, 255, 255, 0.12);
       --line-strong: rgba(255, 255, 255, 0.2);
       --accent: #ffffff;
+      --accent-soft: rgba(255, 255, 255, 0.08);
       --shadow: rgba(0, 0, 0, 0.5);
       --max-width: 1120px;
     }
@@ -228,11 +229,53 @@
       transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
     }
 
+    .button-secondary {
+      color: var(--text);
+      background: transparent;
+      border-color: var(--line-strong);
+    }
+
     .button:hover,
     .button:focus-visible {
       transform: translateY(-2px);
       background: #dcdcd4;
       border-color: #dcdcd4;
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      color: #090909;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 690px;
+      margin-top: 34px;
+    }
+
+    .trust-item {
+      min-height: 72px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.2;
+    }
+
+    .trust-item span {
+      display: block;
+      margin-top: 4px;
+      color: var(--subtle);
+      font-size: 0.82rem;
+      line-height: 1.35;
     }
 
     .hero-visual {
@@ -343,6 +386,12 @@
       font-size: clamp(1rem, 1.5vw, 1.16rem);
     }
 
+    .section-intro {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
     .about {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -380,6 +429,10 @@
       margin-bottom: 36px;
     }
 
+    .books-header .section-intro {
+      max-width: 420px;
+    }
+
     .books-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -399,14 +452,17 @@
         var(--card);
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
       transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+      cursor: pointer;
     }
 
-    .book-card:hover {
+    .book-card:hover,
+    .book-card:focus-visible {
       transform: translateY(-6px);
       border-color: rgba(255, 255, 255, 0.28);
       background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 44%),
         var(--card-light);
+      outline: none;
     }
 
     .book-cover {
@@ -456,6 +512,20 @@
       gap: 18px;
     }
 
+    .book-meta {
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.035);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .book-content h3 {
       font-size: clamp(1.25rem, 2.2vw, 1.9rem);
       font-weight: 650;
@@ -491,6 +561,13 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
+    .sales-note {
+      margin-top: 28px;
+      color: var(--subtle);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
     .contact {
       border-top: 1px solid var(--line);
       background: #070707;
@@ -524,6 +601,24 @@
       text-underline-offset: 6px;
     }
 
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .contact-list span {
+      display: block;
+      padding-left: 16px;
+      border-left: 1px solid var(--line-strong);
+    }
+
+    .policies-heading {
+      margin-bottom: 28px;
+    }
+
     .policy-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -549,12 +644,68 @@
     }
 
     .site-footer {
-      padding: 28px 20px;
+      padding: 44px 20px 28px;
       border-top: 1px solid var(--line);
       color: var(--subtle);
       background: #020202;
-      text-align: center;
       font-size: 0.92rem;
+    }
+
+    .footer-inner {
+      width: min(var(--max-width), 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.45fr) minmax(220px, 0.6fr);
+      gap: 28px;
+    }
+
+    .footer-brand {
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.22rem;
+      font-weight: 700;
+    }
+
+    .footer-inner p {
+      max-width: 420px;
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-links a,
+    .footer-email {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible,
+    .footer-email:hover,
+    .footer-email:focus-visible {
+      color: var(--text);
+    }
+
+    .footer-title {
+      margin-bottom: 12px;
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-bottom {
+      width: min(var(--max-width), 100%);
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
+      text-align: center;
     }
 
     .reveal {
@@ -617,7 +768,9 @@
       }
 
       .books-grid,
-      .policy-grid {
+      .policy-grid,
+      .trust-row,
+      .footer-inner {
         grid-template-columns: 1fr;
       }
     }
@@ -687,12 +840,27 @@
     <section class="section hero" aria-labelledby="hero-title">
       <div class="section-inner hero-grid">
         <div class="reveal">
-          <span class="eyebrow">Motivational eBooks</span>
+          <span class="eyebrow">Self-help digital library</span>
           <h1 id="hero-title">Truth Unfolded Daily</h1>
           <p class="tagline">Motivational eBooks to inspire hope, growth, and resilience.</p>
-          <p class="hero-description">Simple words. Meaningful impact.</p>
+          <p class="hero-description">Simple words. Meaningful impact. Written for quiet moments, difficult seasons, and anyone ready to feel steadier inside their own thoughts.</p>
           <div class="button-row">
-            <a class="button" href="#contact">Contact Us</a>
+            <a class="button" href="#ebooks">Explore eBooks</a>
+            <a class="button button-secondary" href="#contact">Contact Us</a>
+          </div>
+          <div class="trust-row" aria-label="Store highlights">
+            <div class="trust-item">
+              <strong>Instant access</strong>
+              <span>Digital eBooks delivered through Payhip.</span>
+            </div>
+            <div class="trust-item">
+              <strong>Reflective reading</strong>
+              <span>Short messages made for daily encouragement.</span>
+            </div>
+            <div class="trust-item">
+              <strong>Premium simplicity</strong>
+              <span>Clean, focused guidance without overwhelm.</span>
+            </div>
           </div>
         </div>
 
@@ -730,7 +898,8 @@
             Truth Unfolded Daily is dedicated to creating motivational eBooks and uplifting content
             that inspire hope, personal growth, and resilience. Our goal is to share meaningful
             messages that encourage people to navigate life's challenges with confidence and a
-            positive mindset.
+            positive mindset. Each digital book is created to be simple to read, easy to revisit,
+            and supportive during the moments when encouragement matters most.
           </p>
         </div>
       </div>
@@ -743,37 +912,56 @@
             <p class="section-label">Featured eBooks</p>
             <h2 class="section-title" id="ebooks-title">Featured eBooks</h2>
           </div>
+          <p class="section-intro">
+            Choose a short, thoughtful guide for the season you are in. Each eBook is designed for
+            fast reading, practical reflection, and emotional clarity.
+          </p>
         </div>
 
         <div class="books-grid">
-          <article class="book-card reveal">
+          <article
+            class="book-card reveal"
+            role="link"
+            tabindex="0"
+            data-url="https://payhip.com/b/o7apu"
+            aria-label="Open 20 Messages for Anyone Going Through a Difficult Time on Payhip"
+          >
             <div class="book-cover" aria-label="Cover image placeholder for 20 Messages for Anyone Going Through a Difficult Time">
               <span>20 Messages for Anyone Going Through a Difficult Time</span>
             </div>
             <div class="book-content">
+              <span class="book-meta">Digital eBook</span>
               <h3>20 Messages for Anyone Going Through a Difficult Time</h3>
               <p>
                 A collection of uplifting and encouraging messages designed to provide hope,
                 perspective, and motivation during difficult times.
               </p>
-              <a class="book-link" href="https://payhip.com/b/o7apu" target="_blank" rel="noopener noreferrer">View eBook</a>
+              <a class="book-link" href="https://payhip.com/b/o7apu" rel="noopener noreferrer">Buy eBook</a>
             </div>
           </article>
 
-          <article class="book-card reveal">
+          <article
+            class="book-card reveal"
+            role="link"
+            tabindex="0"
+            data-url="https://payhip.com/b/SNdQa"
+            aria-label="Open Reminders for Overthinkers on Payhip"
+          >
             <div class="book-cover" aria-label="Cover image placeholder for Reminders for Overthinkers">
               <span>Reminders for Overthinkers</span>
             </div>
             <div class="book-content">
+              <span class="book-meta">Digital eBook</span>
               <h3>Reminders for Overthinkers</h3>
               <p>
                 Simple reminders to help calm your mind, reduce overthinking, and find peace in
                 the present moment.
               </p>
-              <a class="book-link" href="https://payhip.com/b/SNdQa" target="_blank" rel="noopener noreferrer">View eBook</a>
+              <a class="book-link" href="https://payhip.com/b/SNdQa" rel="noopener noreferrer">Buy eBook</a>
             </div>
           </article>
         </div>
+        <p class="sales-note">Secure checkout and digital delivery are handled through Payhip.</p>
       </div>
     </section>
 
@@ -787,44 +975,74 @@
           <div>
             <p>For questions, support, or business inquiries, please contact us via email.</p>
             <a class="email-link" href="mailto:truthunfolded.quotes@gmail.com">truthunfolded.quotes@gmail.com</a>
+            <div class="contact-list" aria-label="Contact topics">
+              <span>Customer support for digital eBook purchases</span>
+              <span>Business and collaboration inquiries</span>
+              <span>Questions about Truth Unfolded Daily content</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="policies" aria-label="Policies">
-      <div class="section-inner policy-grid">
-        <article class="policy-card reveal">
-          <h2>Privacy Policy</h2>
-          <p>
-            We respect your privacy. Any information provided by customers is used only for
-            communication, order processing, and product delivery. We do not sell or share personal
-            information with third parties.
-          </p>
-        </article>
+      <div class="section-inner">
+        <div class="policies-heading reveal">
+          <p class="section-label">Policies</p>
+          <h2 class="section-title">Store Policies</h2>
+        </div>
+        <div class="policy-grid">
+          <article class="policy-card reveal">
+            <h2>Privacy Policy</h2>
+            <p>
+              We respect your privacy. Any information provided by customers is used only for
+              communication, order processing, and product delivery. We do not sell or share personal
+              information with third parties.
+            </p>
+          </article>
 
-        <article class="policy-card reveal">
-          <h2>Refund Policy</h2>
-          <p>
-            Due to the digital nature of our products, all sales are final. Refunds, returns, and
-            exchanges are not available once a digital product has been delivered.
-          </p>
-        </article>
+          <article class="policy-card reveal">
+            <h2>Refund Policy</h2>
+            <p>
+              Due to the digital nature of our products, all sales are final. Refunds, returns, and
+              exchanges are not available once a digital product has been delivered.
+            </p>
+          </article>
 
-        <article class="policy-card reveal">
-          <h2>Terms &amp; Conditions</h2>
-          <p>
-            All digital products are for personal use only. Products may not be copied,
-            redistributed, resold, or shared without permission. By purchasing or using our
-            products, you agree to these terms.
-          </p>
-        </article>
+          <article class="policy-card reveal">
+            <h2>Terms &amp; Conditions</h2>
+            <p>
+              All digital products are for personal use only. Products may not be copied,
+              redistributed, resold, or shared without permission. By purchasing or using our
+              products, you agree to these terms.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Truth Unfolded Daily. All Rights Reserved.</p>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Truth Unfolded Daily</div>
+        <p>Motivational digital eBooks created to inspire hope, growth, resilience, and a calmer mindset.</p>
+      </div>
+      <div>
+        <div class="footer-title">Explore</div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#ebooks">Featured eBooks</a>
+          <a href="#contact">Contact</a>
+          <a href="#policies">Policies</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <a class="footer-email" href="mailto:truthunfolded.quotes@gmail.com">truthunfolded.quotes@gmail.com</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 Truth Unfolded Daily. All Rights Reserved.</p>
   </footer>
 
   <script>
@@ -847,6 +1065,20 @@
     } else {
       animatedElements.forEach((element) => element.classList.add("is-visible"));
     }
+
+    document.querySelectorAll(".book-card[data-url]").forEach((card) => {
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a")) return;
+        window.location.href = card.dataset.url;
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = card.dataset.url;
+        }
+      });
+    });
   </script>
 </body>
 </html>
