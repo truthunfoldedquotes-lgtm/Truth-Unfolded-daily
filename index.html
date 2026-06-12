@@ -467,6 +467,30 @@
       font-size: 1rem;
     }
 
+    .book-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 44px;
+      padding: 0 20px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 750;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .book-link:hover,
+    .book-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.42);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     .contact {
       border-top: 1px solid var(--line);
       background: #070707;
@@ -732,6 +756,7 @@
                 A collection of uplifting and encouraging messages designed to provide hope,
                 perspective, and motivation during difficult times.
               </p>
+              <a class="book-link" href="https://payhip.com/b/o7apu" target="_blank" rel="noopener noreferrer">View eBook</a>
             </div>
           </article>
 
@@ -745,6 +770,7 @@
                 Simple reminders to help calm your mind, reduce overthinking, and find peace in
                 the present moment.
               </p>
+              <a class="book-link" href="https://payhip.com/b/SNdQa" target="_blank" rel="noopener noreferrer">View eBook</a>
             </div>
           </article>
         </div>
