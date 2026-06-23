@@ -8,6 +8,15 @@
     content="Truth Unfolded Daily creates motivational eBooks to inspire hope, growth, and resilience."
   />
   <title>Truth Unfolded Daily | Motivational eBooks</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FESZS22ZC5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-FESZS22ZC5");
+  </script>
   <style>
     :root {
       --bg: #030303;
@@ -439,6 +448,168 @@
       gap: 20px;
     }
 
+    .collection {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 58%),
+        #060606;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .collection-card {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      gap: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.07), transparent 42%),
+        var(--card);
+      box-shadow: 0 22px 64px rgba(0, 0, 0, 0.28);
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .collection-card:hover,
+    .collection-card:focus-within {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.28);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 42%),
+        var(--card-light);
+    }
+
+    .collection-cover {
+      position: relative;
+      aspect-ratio: 0.68;
+      min-height: 250px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(130deg, rgba(255, 255, 255, 0.2), transparent 30%),
+        linear-gradient(180deg, #272727, #080808);
+      box-shadow: 12px 18px 34px rgba(0, 0, 0, 0.3);
+    }
+
+    .collection-cover::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 17px;
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .collection-cover::after {
+      content: "";
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .collection-cover span {
+      position: absolute;
+      inset: 28px 22px auto 30px;
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.32rem, 2vw, 1.76rem);
+      line-height: 1.02;
+    }
+
+    .collection-cover small {
+      position: absolute;
+      left: 30px;
+      bottom: 44px;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .cover-hope {
+      background:
+        linear-gradient(130deg, rgba(255, 255, 255, 0.24), transparent 30%),
+        linear-gradient(180deg, #383838, #101010);
+    }
+
+    .cover-discipline {
+      background:
+        linear-gradient(130deg, rgba(255, 255, 255, 0.18), transparent 30%),
+        linear-gradient(180deg, #202020, #060606);
+    }
+
+    .cover-kite {
+      background:
+        linear-gradient(130deg, rgba(255, 255, 255, 0.2), transparent 30%),
+        linear-gradient(180deg, #303030, #0d0d0d);
+    }
+
+    .cover-star {
+      background:
+        linear-gradient(130deg, rgba(255, 255, 255, 0.26), transparent 30%),
+        linear-gradient(180deg, #3a3a3a, #0a0a0a);
+    }
+
+    .cover-waiting {
+      background:
+        linear-gradient(130deg, rgba(255, 255, 255, 0.17), transparent 30%),
+        linear-gradient(180deg, #252525, #070707);
+    }
+
+    .collection-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .collection-content h3 {
+      font-size: 1.08rem;
+      line-height: 1.16;
+    }
+
+    .collection-content p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .collection-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 40px;
+      margin-top: auto;
+      padding: 0 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 800;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .collection-link:hover,
+    .collection-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.42);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     .book-card {
       display: grid;
       grid-template-columns: minmax(130px, 0.44fr) 1fr;
@@ -768,6 +939,7 @@
       }
 
       .books-grid,
+      .collection-grid,
       .policy-grid,
       .trust-row,
       .footer-inner {
@@ -830,6 +1002,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#ebooks">eBooks</a>
+        <a href="#collection">Collection</a>
         <a href="#contact">Contact</a>
         <a href="#policies">Policies</a>
       </div>
@@ -965,6 +1138,83 @@
       </div>
     </section>
 
+    <section class="section collection" id="collection" aria-labelledby="collection-title">
+      <div class="section-inner">
+        <div class="books-header reveal">
+          <div>
+            <p class="section-label">Books</p>
+            <h2 class="section-title" id="collection-title">Truth Unfolded Collection</h2>
+          </div>
+          <p class="section-intro">
+            A growing collection of motivational, reflective, and children's eBooks created to
+            encourage hope, discipline, confidence, and emotional strength.
+          </p>
+        </div>
+
+        <div class="collection-grid">
+          <article class="collection-card reveal">
+            <div class="collection-cover cover-hope" aria-label="Cover image placeholder for Hope">
+              <span>Hope</span>
+              <small>Motivational eBook</small>
+            </div>
+            <div class="collection-content">
+              <h3>Hope</h3>
+              <p>A motivational ebook about finding light during difficult times and believing that better days are ahead.</p>
+              <a class="collection-link" href="#contact">Read More</a>
+            </div>
+          </article>
+
+          <article class="collection-card reveal">
+            <div class="collection-cover cover-discipline" aria-label="Cover image placeholder for Discipline When Motivation Fails">
+              <span>Discipline When Motivation Fails</span>
+              <small>Growth eBook</small>
+            </div>
+            <div class="collection-content">
+              <h3>Discipline When Motivation Fails</h3>
+              <p>Learn why discipline is more reliable than motivation and how small daily actions create lasting success.</p>
+              <a class="collection-link" href="#contact">Read More</a>
+            </div>
+          </article>
+
+          <article class="collection-card reveal">
+            <div class="collection-cover cover-kite" aria-label="Cover image placeholder for The Lost Kite">
+              <span>The Lost Kite</span>
+              <small>Children's Story</small>
+            </div>
+            <div class="collection-content">
+              <h3>The Lost Kite</h3>
+              <p>A heartwarming children's story about hope, resilience, and starting over after loss.</p>
+              <a class="collection-link" href="#contact">Read More</a>
+            </div>
+          </article>
+
+          <article class="collection-card reveal">
+            <div class="collection-cover cover-star" aria-label="Cover image placeholder for The Tiny Star That Wanted to Shine">
+              <span>The Tiny Star That Wanted to Shine</span>
+              <small>Children's Story</small>
+            </div>
+            <div class="collection-content">
+              <h3>The Tiny Star That Wanted to Shine</h3>
+              <p>A magical children's story about confidence, self-belief, and discovering your unique light.</p>
+              <a class="collection-link" href="#contact">Read More</a>
+            </div>
+          </article>
+
+          <article class="collection-card reveal">
+            <div class="collection-cover cover-waiting" aria-label="Cover image placeholder for The Weight of Waiting">
+              <span>The Weight of Waiting</span>
+              <small>Reflective eBook</small>
+            </div>
+            <div class="collection-content">
+              <h3>The Weight of Waiting</h3>
+              <p>A reflective ebook about unemployment, loneliness, uncertainty, and finding strength while waiting for life to change.</p>
+              <a class="collection-link" href="#contact">Read More</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="section-inner">
         <div class="contact-panel reveal">
@@ -1033,6 +1283,7 @@
         <div class="footer-links">
           <a href="#about">About</a>
           <a href="#ebooks">Featured eBooks</a>
+          <a href="#collection">Truth Unfolded Collection</a>
           <a href="#contact">Contact</a>
           <a href="#policies">Policies</a>
         </div>
